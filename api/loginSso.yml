@@ -1,6 +1,6 @@
 
 name: Sso login
-base_url: "http://txsso.yunjiglobal.com"
+base_url: ${ENV(LOGIN_URL)}
 variables:
     username: ${ENV(USERNAME)}
     password: ${ENV(PASSWORD)}
