@@ -1,0 +1,16 @@
+
+config:
+    name: "demo test suite"
+    variables: {}
+    base_url: ${ENV(BASE_URL)}
+
+testcases:
+-
+    name: call demo test case with steps frist execute
+    testcase: testcases/test_loginSso.yml
+    variables: {}
+
+-
+    name: call demo test case with steps second execute
+    testcase: testcases/test_subAccountQuery.yml
+    variables: {}
