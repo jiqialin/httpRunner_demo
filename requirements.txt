@@ -1,3 +1,4 @@
+requests_ntlm
 httprunner==2.2.5
 Jinja2==2.10.1
 PyMySQL==0.9.3

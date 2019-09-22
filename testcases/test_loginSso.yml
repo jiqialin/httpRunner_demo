@@ -5,10 +5,11 @@
         - session_cookie
 
 - test:
-    name: 登录云集后台
+    name: login Sso System Platform
     api: api/loginSso.yml
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["json.message", "登录成功"]
 #    extract:
 #        session_cookie: cookies
-#    validate:
-#        - eq: ["status_code", 200]
-#        - eq: ["json.message", "登录成功"]
+

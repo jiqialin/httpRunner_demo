@@ -3,6 +3,13 @@ name: sub-account query opeartion
 base_url: ${ENV(BASE_URL)}
 variables:
     merchantCode: SX537606
+    setup1: "测试步骤2之前打印"
+    teardown1: "测试步骤2之后打印"
+
+setup_hooks:
+    - ${hook_print($setup1)}
+teardown_hooks:
+    - ${hook_print($teardown1)}
 
 
 request:
@@ -31,6 +38,4 @@ request:
         startSubAccountTime: ''
         status: ''
         tradeOrderDetailId: ''
-validate:
-    - eq: ["status_code", 200]
-    - eq: ["content.msg", "请求成功"]
+

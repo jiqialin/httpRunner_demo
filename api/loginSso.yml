@@ -4,6 +4,16 @@ base_url: ${ENV(LOGIN_URL)}
 variables:
     username: ${ENV(USERNAME)}
     password: ${ENV(PASSWORD)}
+    setup: "测试步骤1之前打印"
+    teardown: "测试步骤1之后打印"
+
+setup_hooks:
+    - ${hook_print($setup)}
+    - ${setup_hook_prepare_kwargs($request)}
+teardown_hooks:
+    - ${hook_print($teardown)}
+    - ${teardown_hook_sleep_N_secs($response)}
+
 request:
     url: loginUser
     method: POST
@@ -15,6 +25,3 @@ request:
       dynamicPassword: ''
       isGetDKey: 'false'
       password: $password
-validate:
-    - eq: ["status_code", 200]
-    - eq: ["json.message", "登录成功"]

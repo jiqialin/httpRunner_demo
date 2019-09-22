@@ -12,5 +12,5 @@ testcases:
 
 -
     name: call demo test case with steps second execute
-    testcase: testcases/test_subAccountQuery.yml
+    testcase: testcases/分账平台/test_subAccountQuery.yml
     variables: {}
