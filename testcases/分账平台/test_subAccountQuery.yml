@@ -2,8 +2,8 @@ config:
     name: sub-account query operation
     verify: False
     variables:
-        setups: "测试用例之前打印"
-        teardowns: "测试用例之后打印"
+        setups: "Print before test case"
+        teardowns: "Print after the test case"
     setup_hooks:
         - ${hook_print($setups)}
     teardown_hooks:

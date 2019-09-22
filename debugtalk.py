@@ -14,25 +14,31 @@ def hook_print(msg):
 
 def teardown_hook_sleep_N_secs(response):
     """
-        sleep n seconds after request
+        Do something before the test case .
+          tips:  sleep n seconds after request
+    :param response: response objects
+    :return:
     """
     if response.status_code == 200:
-        print('sleep 0.1 secs')
-        time.sleep(0.1)
+        print('sleep 1 sec')
+        sleep(1)
     else:
-        print('status is errors')
+        print('The state is not expected .')
 
 
 def setup_hook_prepare_kwargs(request):
+    """
+        Do something before the test case .
+    :param request:
+    :return:
+    """
+    print('Determine whether the data format needs to be transformed before request.')
     if request["method"] == "POST":
-        print('request method is POST')
         content_type = request.get("headers", {}).get("content-type")
         if content_type and "data" in request:
-            # if request content-type is application/json, request data should be dumped
             if content_type.startswith("application/json") and isinstance(request["data"], (dict, list)):
                 request["data"] = demjson.encode(request["data"])
-
-            if isinstance(request["data"], str):
+            elif isinstance(request["data"], str):
                 request["data"] = request["data"].encode('utf-8')
 
 
@@ -52,7 +58,7 @@ def searchSqlSyntax(sql_syntax):
     db = pymysql.connect(host='127.0.0.1', port=3306,
                          user='root', passwd='123456',
                          charset='utf-8')
-    cur = db.cursor()  # cur = db.cursor(cursor=pymysql.cursors.DictCursor)  # 输出字典格式数据
+    cur = db.cursor()  # cur = db.cursor(cursor=pymysql.cursors.DictCursor)
     try:
         cur.execute(sql_syntax)
         result = cur.fetchall()[0][0]

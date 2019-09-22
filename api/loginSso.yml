@@ -4,8 +4,8 @@ base_url: ${ENV(LOGIN_URL)}
 variables:
     username: ${ENV(USERNAME)}
     password: ${ENV(PASSWORD)}
-    setup: "测试步骤1之前打印"
-    teardown: "测试步骤1之后打印"
+    setup: "Print before test step 1"
+    teardown: "Print after test step 1"
 
 setup_hooks:
     - ${hook_print($setup)}
