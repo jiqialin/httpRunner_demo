@@ -71,7 +71,7 @@ def searchSqlSyntax(sql_syntax):
 
 
 def alterSqlSyntax(sql_syntax):
-    """  DDL、DML operation example.
+    """  DDL、DML operation example
         :param sql_syntax: alter table `db_name`.`table_name` where field condition values.
         :return:
     """

@@ -4,6 +4,8 @@ config:
     variables:
         setups: "Print before test case"
         teardowns: "Print after the test case"
+        setup1: "Print before test step 2"
+        teardown1: "Print after test step 2"
     setup_hooks:
         - ${hook_print($setups)}
     teardown_hooks:
@@ -12,9 +14,17 @@ config:
 teststeps:
 -   name: login Sso
     api: api/loginSso.yml
+    setup_hooks:
+        - ${hook_print($setup1)}
+    teardown_hooks:
+        - ${hook_print($teardown1)}
 
 -   name: search page
     api: api/分账平台/sub_account_query.yml
+    setup_hooks:
+        - ${hook_print($setup1)}
+    teardown_hooks:
+        - ${hook_print($teardown1)}
     validate:
         - eq: ["status_code", 200]
         - eq: ["json.msg", "请求成功"]
