@@ -4,9 +4,6 @@ base_url: ${ENV(LOGIN_URL)}
 variables:
     username: ${ENV(USERNAME)}
     password: ${ENV(PASSWORD)}
-    setup: "Print before test step 1"
-    teardown: "Print after test step 1"
-
 
 
 request:

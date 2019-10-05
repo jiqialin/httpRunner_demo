@@ -1,21 +1,20 @@
 - config:
     name: login Sso platform
     verify: False
-
     variables:
         setup: "Print before test step 1"
         teardown: "Print after test step 1"
-
-
-- test:
-    name: login Sso System Platform
-    api: api/loginSso.yml
     setup_hooks:
         - ${hook_print($setup)}
         - ${setup_hook_prepare_kwargs($request)}
     teardown_hooks:
         - ${hook_print($teardown)}
         - ${teardown_hook_sleep_N_secs($response)}
+
+
+- test:
+    name: login Sso System Platform
+    api: api/loginSso.yml
     validate:
         - eq: ["status_code", 200]
         - eq: ["json.message", "登录成功"]

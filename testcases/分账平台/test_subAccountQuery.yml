@@ -10,6 +10,8 @@ config:
         - ${hook_print($setups)}
     teardown_hooks:
         - ${hook_print($teardowns)}
+    output:
+        - 'data'
 
 teststeps:
 -   name: login Sso
@@ -18,6 +20,9 @@ teststeps:
         - ${hook_print($setup1)}
     teardown_hooks:
         - ${hook_print($teardown1)}
+    extract:
+        - data: cookies
+
 
 -   name: search page
     api: api/分账平台/sub_account_query.yml
