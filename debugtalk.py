@@ -2,6 +2,11 @@
 import pymysql
 import time
 import demjson
+from requests_toolbelt.multipart import MultipartEncoder
+
+
+def getBufferedReader(file_path):
+    return open(file_path, 'rb')
 
 
 def sleep(n_secs):
@@ -67,6 +72,7 @@ def searchSqlSyntax(sql_syntax):
     else:
         return result
     finally:
+
         db.close()
 
 
@@ -86,5 +92,4 @@ def alterSqlSyntax(sql_syntax):
         return f'execute sql exception: {e}'
     finally:
         db.close()
-
 

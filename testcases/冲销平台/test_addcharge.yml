@@ -1,0 +1,30 @@
+config:
+    name: add charge operation
+    verify: False
+    variables:
+        setup: "Print before test case"
+        teardowns: "Print after the test case"
+
+    setup_hooks:
+        - ${hook_print($setup)}
+    teardown_hooks:
+        - ${hook_print($teardown)}
+    output:
+        - 'data'
+        - 'code'
+
+
+
+teststeps:
+    -   name: login Sso System Platform
+        api: api/loginSso.yml
+        extract:
+            code: cookies
+
+    -   name: add charge
+        api: api/冲销平台/addcharge.yml
+        extract:
+            data: json.data
+        validate:
+            - eq: ["json.msg", "请求成功"]
+
