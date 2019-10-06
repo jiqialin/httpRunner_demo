@@ -61,8 +61,7 @@ def searchSqlSyntax(sql_syntax):
         :return:
     """
     db = pymysql.connect(host='127.0.0.1', port=3306,
-                         user='root', passwd='123456',
-                         charset='utf-8')
+                         user='root', passwd='123456', charset='utf8')
     cur = db.cursor()  # cur = db.cursor(cursor=pymysql.cursors.DictCursor)
     try:
         cur.execute(sql_syntax)
@@ -82,7 +81,7 @@ def alterSqlSyntax(sql_syntax):
         :return:
     """
     db = pymysql.connect(host='127.0.0.1', port=3306,
-                         user='root', passwd='123456', charset='utf-8')
+                         user='root', passwd='123456', charset='utf8')
     cur = db.cursor()
     try:
         cur.execute(sql_syntax)
@@ -93,3 +92,7 @@ def alterSqlSyntax(sql_syntax):
     finally:
         db.close()
 
+
+if __name__ == '__main__':
+    r = searchSqlSyntax('SELECT * FROM `my_django`.`case_info` LIMIT 0, 1000')
+    print(r)
