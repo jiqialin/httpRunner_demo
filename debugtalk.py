@@ -2,7 +2,6 @@
 import pymysql
 import time
 import demjson
-from requests_toolbelt.multipart import MultipartEncoder
 
 
 def getBufferedReader(file_path):
