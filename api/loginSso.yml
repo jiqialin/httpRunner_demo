@@ -21,7 +21,13 @@ request:
         User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/76.0.3809.132 Safari/537.36
         Content-Type: "application/json"
     params:
-      accounts: $username
-      dynamicPassword: ''
-      isGetDKey: 'false'
-      password: $password
+        accounts: $username
+        dynamicPassword: 1
+        isGetDKey: 'false'
+        password: $password
+validate:
+    - eq: ["status_code", 200]
+    - eq: ["json.message", "登录成功"]
+
+extract:
+    session_cookie: cookies

@@ -1,15 +1,11 @@
 - config:
     name: login Sso platform
     verify: False
+    variables: {}
     output:
         - session_cookie
 
 - test:
     name: login Sso System Platform
     api: api/loginSso.yml
-    validate:
-        - eq: ["status_code", 200]
-        - eq: ["json.message", "登录成功"]
-#    extract:
-#        session_cookie: cookies
 
