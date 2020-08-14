@@ -1,0 +1,20 @@
+
+name: add charge api
+base_url: ${ENV(BASE_URL)}
+variables:
+    fileName: 冲销模板.xlsx
+    filePath: C:\\Users\\Administrator\\PycharmProjects\\httpRunner_demo\\data\\冲销模板.xlsx
+    fileType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    fileobj: ${getBufferedReader($filePath)}
+
+request:
+    files:
+        requestId: [null, 92370255]
+        files: [$fileName, $fileobj, $fileType]
+    headers:
+#        Content-Type: multipart/form-data; boundary=----WebKitFormBoundary5g5gXHx8sI4DcSyH
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/76.0.3809.132 Safari/537.36
+    method: POST
+    url: fmsadmin/admin/charge/uploadFile
+

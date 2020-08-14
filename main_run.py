@@ -1,3 +1,7 @@
+
+from httprunner.api import HttpRunner
+
+runner = HttpRunner(failfast=False)
 # coding=utf-8
 
 """
@@ -15,11 +19,13 @@ runner = HttpRunner(failfast=False, log_level='debug')
 # # dot_env_path
 # runner.run("testcases", dot_env_path="docker.env")
 
+#
 # # mapping
 # # override_mapping = {
 # #     "merchantCode": "SX537607"
 # # }
 
+# #
 # runner.run("docs/data/demo-quickstart-2.yml", mapping=override_mapping)
 
 # get result summary

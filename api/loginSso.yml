@@ -4,15 +4,7 @@ base_url: ${ENV(LOGIN_URL)}
 variables:
     username: ${ENV(USERNAME)}
     password: ${ENV(PASSWORD)}
-    setup: "Print before test step 1"
-    teardown: "Print after test step 1"
 
-setup_hooks:
-    - ${hook_print($setup)}
-    - ${setup_hook_prepare_kwargs($request)}
-teardown_hooks:
-    - ${hook_print($teardown)}
-    - ${teardown_hook_sleep_N_secs($response)}
 
 request:
     url: loginUser

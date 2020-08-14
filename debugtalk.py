@@ -4,6 +4,10 @@ import time
 import demjson
 
 
+def getBufferedReader(file_path):
+    return open(file_path, 'rb')
+
+
 def sleep(n_secs):
     time.sleep(n_secs)
 
@@ -56,8 +60,7 @@ def searchSqlSyntax(sql_syntax):
         :return:
     """
     db = pymysql.connect(host='127.0.0.1', port=3306,
-                         user='root', passwd='123456',
-                         charset='utf-8')
+                         user='root', passwd='123456', charset='utf8')
     cur = db.cursor()  # cur = db.cursor(cursor=pymysql.cursors.DictCursor)
     try:
         cur.execute(sql_syntax)
@@ -67,16 +70,17 @@ def searchSqlSyntax(sql_syntax):
     else:
         return result
     finally:
+
         db.close()
 
 
 def alterSqlSyntax(sql_syntax):
-    """  DDL、DML operation example.
+    """  DDL、DML operation example
         :param sql_syntax: alter table `db_name`.`table_name` where field condition values.
         :return:
     """
     db = pymysql.connect(host='127.0.0.1', port=3306,
-                         user='root', passwd='123456', charset='utf-8')
+                         user='root', passwd='123456', charset='utf8')
     cur = db.cursor()
     try:
         cur.execute(sql_syntax)
@@ -88,3 +92,6 @@ def alterSqlSyntax(sql_syntax):
         db.close()
 
 
+if __name__ == '__main__':
+    r = searchSqlSyntax('SELECT * FROM `my_django`.`case_info` LIMIT 0, 1000')
+    print(r)
