@@ -4,13 +4,6 @@ from httprunner.api import HttpRunner
 runner = HttpRunner(failfast=False)
 # coding=utf-8
 
-"""
-@作者: Angst
-@邮箱: zhouqing@yunjiglobal.com
-@开发工具: PyCharm
-@创建时间: 2019/12/9 15:23
-"""
-
 from httprunner.api import HttpRunner
 
 runner = HttpRunner(failfast=False, log_level='debug')

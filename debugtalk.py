@@ -95,3 +95,4 @@ def alterSqlSyntax(sql_syntax):
 if __name__ == '__main__':
     r = searchSqlSyntax('SELECT * FROM `my_django`.`case_info` LIMIT 0, 1000')
     print(r)
+
