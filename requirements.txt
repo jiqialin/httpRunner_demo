@@ -1,7 +1,7 @@
 demjson
 requests_ntlm
 httprunner==2.2.5
-Jinja2==2.10.1
+Jinja2==2.11.3
 PyMySQL==0.9.3
 PyYAML==5.1.2
 requests==2.22.0
