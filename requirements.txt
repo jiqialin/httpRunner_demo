@@ -3,7 +3,7 @@ requests_ntlm
 httprunner==2.2.5
 Jinja2==2.10.1
 PyMySQL==0.9.3
-PyYAML==5.1.2
+PyYAML==5.4
 requests==2.22.0
 requests-toolbelt==0.8.0
 sqlparse==0.3.0
